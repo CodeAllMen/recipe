@@ -6,11 +6,11 @@ import (
 
 type RecipeList struct {
 	Id           int
-	Name         string
+	Name         string `json:"name" orm:"column(german_name)"`
 	Url          string
 	ImgUrl       string
 	ImgUrlLarge  string
-	Introduce    string
+	Introduce    string `json:"introduce" orm:"column(german_introduce)"`
 	PageViews    int
 	RecipeTypeId int
 	Status       int
@@ -70,7 +70,6 @@ func GetRecipeListById(id int) RecipeList {
 	_ = o.QueryTable("recipe_tmp_list").Filter("id", id).One(&recipeList)
 	return recipeList
 }
-
 
 func GetRecipeListByTitle(name string, params map[string]interface{}) ([]*RecipeList, int) {
 	o := orm.NewOrm()

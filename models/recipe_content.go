@@ -4,12 +4,12 @@ import "github.com/astaxie/beego/orm"
 
 type RecipeContent struct {
 	Id          int
-	Name        string
+	Name        string `json:"name" orm:"column(german_name)"`
 	ImgUrl      string
 	ImgUrlLarge string
 	VideoId     string
-	Preparation string
-	Ingredients string
+	Preparation string `json:"preparation" orm:"column(german_preparation)"`
+	Ingredients string `json:"ingredients" orm:"column(german_ingredients)"`
 	ListId      int
 	VideoPath   string
 }

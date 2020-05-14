@@ -5,17 +5,17 @@ import (
 )
 
 type RecipeCategory struct {
-	Id       int
-	Name     string
-	PageNum  string
-	Keyword  string
-	NavType  int
-	ParentId int
-	Status   int
+	Id         int
+	Name       string `json:"name" orm:"column(german_name)"`
+	PageNum    string
+	Keyword    string
+	NavType    int
+	ParentId   int
+	Status     int
 }
 
 type RecipeSearch struct {
-	Id string
+	Id   string
 	Name string
 }
 
